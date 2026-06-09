@@ -1,0 +1,3 @@
+router:
+  type: "gnn"
+  checkpoint: "results/checkpoints/gnn_best.pt"

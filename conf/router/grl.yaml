@@ -1,0 +1,5 @@
+router:
+  type: "grl"
+  gnn_checkpoint: "results/checkpoints/gnn_best.pt"
+  dqn_checkpoint: "results/checkpoints/dqn_best.pt"
+  freeze_gnn: true      # false for joint training variant

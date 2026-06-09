@@ -1,0 +1,7 @@
+traffic:
+  pattern: "uniform"
+  injection_rate: 0.01
+  hotspot_ratio: 0.2
+  hotspot_traffic_frac: 0.8
+  failure_rate: 0.0
+  failure_type: "link"

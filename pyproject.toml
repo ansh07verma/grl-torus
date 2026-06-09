@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "grl-torus"
+version = "0.1.0"
+description = "Graph Reinforcement Learning for Adaptive Routing in 2D Torus Optical Interconnects"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [
+    {name = "Ansh", email = "ansh@example.com"},
+]
+keywords = ["graph-neural-network", "reinforcement-learning", "torus", "routing", "optical-interconnects"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    # Core Simulation
+    "simpy>=4.1",
+    "networkx>=3.2",
+    # ML
+    "torch>=2.2",
+    "torch-geometric>=2.5",
+    # Configuration
+    "hydra-core>=1.3",
+    "omegaconf>=2.3",
+    # Experiment Tracking
+    "pandas>=2.1",
+    "numpy>=1.26",
+    "tensorboard>=2.15",
+    # Visualisation
+    "matplotlib>=3.8",
+    "seaborn>=0.13",
+    # Statistics
+    "scipy>=1.12",
+]
+
+[project.optional-dependencies]
+wandb = ["wandb>=0.16"]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.1",
+    "ruff>=0.3",
+    "mypy>=1.8",
+]
+docs = [
+    "mkdocs>=1.5",
+    "mkdocstrings[python]>=0.24",
+    "mkdocs-material>=9.5",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]

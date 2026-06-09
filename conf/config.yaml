@@ -1,0 +1,53 @@
+defaults:
+  - topology: torus_8x8
+  - traffic: uniform
+  - router: xy
+  - _self_
+
+simulation:
+  duration_ns: 100000         # 100µs simulated time (statistically significant but faster to simulate)
+  warmup_ns: 10000            # Discard first 10µs for steady-state
+  max_hops: 0                 # 0 = auto (4*N)
+  queue_timeout_ns: 50000
+
+node:
+  buffer_depth: 64            # Max packets per directional queue
+  vc_count: 1                 # Virtual channels (overridden by odd_even router)
+
+link:
+  bandwidth_gbps: 100         # Per-link bandwidth
+  propagation_delay_ns: 1     # Propagation delay
+
+packet:
+  payload_size: 64            # Bytes per packet
+
+# Node feature vector (8 dimensions)
+# Computed by TorusNode.get_features() in src/sim/node.py
+features:
+  node_dim: 8
+  description:
+    - queue_N_norm            # [0] North queue occupancy / buffer_depth
+    - queue_S_norm            # [1] South queue occupancy / buffer_depth
+    - queue_E_norm            # [2] East queue occupancy / buffer_depth
+    - queue_W_norm            # [3] West queue occupancy / buffer_depth
+    - x_norm                  # [4] x / (grid_size - 1)
+    - y_norm                  # [5] y / (grid_size - 1)
+    - load_ema                # [6] EMA of total queue load (alpha=0.1)
+    - is_failed               # [7] 1.0 if node failed, 0.0 otherwise
+
+experiment:
+  topologies: [4, 8]
+  traffic_patterns: ["uniform", "hotspot", "adversarial"]
+  routers: ["xy", "odd_even", "valiant", "gnn", "grl"]
+  failure_rates: [0.0, 0.1]
+  seeds: [0, 1, 2, 3, 4]
+  injection_rate: 0.01        # Packets per ns
+
+seed: 42
+device: "cpu"                 # GPU available, CPU preferred
+
+logging:
+  backend: "tensorboard"      # "tensorboard" or "wandb"
+  log_dir: "results/logs"
+  csv_dir: "results/csv"
+  level: "INFO"

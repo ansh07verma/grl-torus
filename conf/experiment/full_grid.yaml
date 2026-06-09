@@ -1,0 +1,9 @@
+experiment:
+  name: "full_grid"
+  topologies: [4, 8, 16, 32]
+  traffic_patterns: ["uniform", "hotspot", "adversarial", "fault"]
+  failure_rates: [0.0, 0.05, 0.1, 0.2]
+  seeds: [0, 1, 2, 3, 4]
+  routers: ["xy", "odd_even", "valiant", "gnn", "grl"]
+  parallel_workers: 4
+  output_csv: "results/csv/all_results.csv"

@@ -1,0 +1,29 @@
+\begin{table*}[t]
+\centering
+\caption{Performance Comparison across Routing Algorithms on 4$\times$4 Torus}
+\label{tab:performance_comparison}
+\begin{tabular}{ll|cc|cc}
+\toprule
+ & & \multicolumn{2}{c|}{\textbf{Healthy (0\% Failures)}} & \multicolumn{2}{c}{\textbf{Degraded (10\% Failures)}} \\
+\textbf{Traffic} & \textbf{Algorithm} & \textbf{Latency (ns)} & \textbf{Drop Rate (\%)} & \textbf{Latency (ns)} & \textbf{Drop Rate (\%)} \\
+\midrule
+Adversarial & XY & 13.2 \pm 0.2 & 0.0 & 13.8 \pm 0.3 & 7.7 \\
+ & Odd-Even & 15.5 \pm 0.2 & 0.0 & 16.0 \pm 0.5 & 7.8 \\
+ & Valiant & 24.7 \pm 0.1 & 0.0 & 25.2 \pm 0.7 & 14.4 \\
+ & Supervised GNN & 13.2 \pm 0.2 & 0.0 & 13.8 \pm 0.5 & 4.2 \\
+ & GRL (Ours) & 14.4 \pm 0.2 & 3.5 & 15.5 \pm 0.6 & 7.2 \\
+\midrule
+Hotspot & XY & 13.1 \pm 0.2 & 0.0 & 14.0 \pm 0.6 & 12.2 \\
+ & Odd-Even & 16.2 \pm 1.7 & 0.0 & 17.3 \pm 1.9 & 10.5 \\
+ & Valiant & 24.8 \pm 0.4 & 0.1 & 25.7 \pm 0.9 & 16.7 \\
+ & Supervised GNN & 13.1 \pm 0.2 & 0.0 & 14.5 \pm 1.1 & 3.6 \\
+ & GRL (Ours) & 14.7 \pm 0.3 & 3.2 & 16.4 \pm 1.1 & 13.4 \\
+\midrule
+Uniform & XY & 13.0 \pm 0.1 & 0.0 & 13.6 \pm 0.4 & 8.4 \\
+ & Odd-Even & 15.3 \pm 0.1 & 0.0 & 15.8 \pm 0.6 & 7.6 \\
+ & Valiant & 24.7 \pm 0.2 & 0.0 & 25.1 \pm 0.6 & 15.3 \\
+ & Supervised GNN & 13.0 \pm 0.1 & 0.0 & 13.7 \pm 0.3 & 3.8 \\
+ & GRL (Ours) & 14.2 \pm 0.1 & 4.3 & 15.5 \pm 0.5 & 7.8 \\
+\bottomrule
+\end{tabular}
+\end{table*}

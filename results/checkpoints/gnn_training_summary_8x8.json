@@ -1,0 +1,9 @@
+{
+  "best_val_loss": 0.782053054869175,
+  "best_val_acc": 0.61,
+  "test_acc": 0.605,
+  "epochs_trained": 30,
+  "total_params": 60620,
+  "training_time_s": 25.092796087265015,
+  "checkpoint_path": "results\\checkpoints\\gnn_best_8x8.pt"
+}

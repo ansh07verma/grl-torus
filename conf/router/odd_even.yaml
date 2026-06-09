@@ -1,0 +1,3 @@
+router:
+  type: "odd_even"
+  vc_count: 2           # 2 virtual channels for torus cycle breaking

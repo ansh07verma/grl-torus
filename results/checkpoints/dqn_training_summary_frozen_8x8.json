@@ -1,0 +1,8 @@
+{
+  "best_avg_reward": 3.0121369776303784,
+  "total_episodes": 500,
+  "total_steps": 305866,
+  "training_time_s": 1641.2765815258026,
+  "checkpoint_path": "results\\checkpoints\\dqn_best_frozen_8x8.pt",
+  "mode": "frozen-GNN"
+}
