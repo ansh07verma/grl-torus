@@ -70,7 +70,11 @@ demo/.env.local
 
 # Results (Optional: we keep them for the paper, but ignore large checkpoints)
 # results/checkpoints/*.pt
-# results/logs/*
+results/logs/*
+
+# AI/Temporary scripts
+IMPLEMENTATION_PLAN.md
+update_repos.ps1
 
 # VS Code
 .vscode/
