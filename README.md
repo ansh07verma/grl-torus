@@ -72,6 +72,28 @@ Produce publication-ready Matplotlib/Seaborn charts.
 python scripts/generate_figures.py
 ```
 
+## Evaluation Results
+
+The GRL-Torus framework has been thoroughly evaluated across multiple grid sizes (4x4, 8x8), traffic patterns (Uniform, Hotspot, Adversarial), and failure scenarios. Below are some of the key results generated from our automated experiment pipeline.
+
+### 1. Average End-to-End Latency
+GRL dynamically adapts to congestion, achieving lower average latency than Valiant load balancing and the Odd-Even turn model, especially under non-uniform traffic.
+![Latency Comparison](results/figures/fig1_latency_4x4.png)
+
+### 2. Network Throughput
+By avoiding congested links and minimising packet drops, GRL sustains higher throughput than deterministic baselines like XY routing.
+![Throughput Comparison](results/figures/fig2_throughput_4x4.png)
+
+### 3. Packet Drop Rate
+GRL significantly reduces packet loss under Hotspot and Adversarial traffic patterns compared to baseline routers.
+![Drop Rate Comparison](results/figures/fig3_drop_rate_4x4.png)
+
+### 4. Fault Resilience
+When subjected to a 10% random link failure rate, the GRL router seamlessly reroutes packets around dead links, maintaining lower latency degradation than standard adaptive algorithms.
+![Failure Resilience](results/figures/fig6_failure_resilience_4x4.png)
+
+For a complete breakdown of the evaluation methodology, model architecture, and statistical significance tests, refer to the documents in the `docs/` folder.
+
 ## Demo Visualiser
 
 To launch the animated React dashboard:
